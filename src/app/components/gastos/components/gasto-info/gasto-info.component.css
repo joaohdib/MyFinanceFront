@@ -1,0 +1,64 @@
+.card-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ddd;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border: 1px solid #aaa;
+  }
+  
+  .item-card:last-child {
+    margin-bottom: 0;
+  }
+  
+  .item-date {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .item-value {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .positive {
+    color: #0dad0d;
+  }
+  
+  .negative {
+    color: red;
+  }
+  
+  .item-info span {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .item-actions button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .edit-button {
+    background-color: #6a0dad !important;
+    color: white !important;
+  }
+  
+  .delete-button {
+    background-color: #f44336 !important;
+    color: white !important;
+  }

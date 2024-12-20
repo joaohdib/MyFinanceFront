@@ -1,0 +1,30 @@
+<head><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"></head>
+
+
+<button mat-button id="back" (click)="irParaOutraRota('')">Voltar</button>
+<div class="header">
+    <h1>Gastos e Entradas</h1>
+  </div>
+  
+  <div class="filter-bar">
+    <div>
+      <button mat-flat-button id="add">
+        Adicionar
+      </button>
+    </div>
+    <div>
+      <label for="ano">Ano</label>
+      <input type="text" id="ano" value="2024" readonly />
+    </div>
+    <div>
+      <label for="mes">Mês</label>
+      <input type="text" id="mes" value="Dez" readonly />
+    </div>
+  </div>
+
+
+<app-gasto-info [valor] = 28.50 [categoria]="'Comida'" [tipo]= "'out'" [data]="'20/10'"></app-gasto-info>
+<app-gasto-info [valor] = 100 [categoria]="'Investimento'" [tipo]= "'in'" [data]="'20/10'"></app-gasto-info>
+<app-gasto-info [valor] = 10 [categoria]="'Namorada'" [tipo]= "'out'" [data]="'20/10'"></app-gasto-info>
+  
+  

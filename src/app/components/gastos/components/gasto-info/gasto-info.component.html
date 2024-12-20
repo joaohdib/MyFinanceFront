@@ -1,0 +1,18 @@
+<div class="card-container">
+    <!-- Item 1 -->
+    <div class="item-card">
+      <div class="item-date">{{data}}</div>
+@if (tipo == 'in') {
+      <div class="item-value positive">{{valor}} R$</div>
+}
+@else {
+      <div class="item-value negative">-{{valor}} R$</div>
+}
+      <div class="item-info">
+        <span>{{categoria}}</span>
+      </div>
+      <div class="item-actions">
+        <button mat-flat-button class="edit-button">Editar</button>
+        <button mat-flat-button class="delete-button">Apagar</button>
+      </div>
+    </div>
