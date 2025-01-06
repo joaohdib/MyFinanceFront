@@ -1,30 +1,61 @@
-<head><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"></head>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
 
 
 <button mat-button id="back" (click)="irParaOutraRota('')">Voltar</button>
 <div class="header">
-    <h1>Gastos e Entradas</h1>
+  <h1>Gastos e Entradas</h1>
+</div>
+
+<div class="filter-bar">
+  <div>
+    <button mat-flat-button id="add">
+      Adicionar
+    </button>
   </div>
-  
-  <div class="filter-bar">
-    <div>
-      <button mat-flat-button id="add">
-        Adicionar
-      </button>
-    </div>
-    <div>
-      <label for="ano">Ano</label>
-      <input type="text" id="ano" value="2024" readonly />
-    </div>
-    <div>
-      <label for="mes">Mês</label>
-      <input type="text" id="mes" value="Dez" readonly />
-    </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Ano</mat-label>
+      <mat-select>
+        <mat-option value="2024">2024</mat-option>
+        <mat-option value="2023">2023</mat-option>
+        <mat-option value="2022">2022</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Mês</mat-label>
+      <mat-select>
+        <mat-option value="january">Janeiro</mat-option>
+        <mat-option value="february">Fevereiro</mat-option>
+        <mat-option value="march">Março</mat-option>
+        <mat-option value="april">Abril</mat-option>
+        <mat-option value="may">Maio</mat-option>
+        <mat-option value="june">Junho</mat-option>
+        <mat-option value="july">Julho</mat-option>
+        <mat-option value="august">Agosto</mat-option>
+        <mat-option value="september">Setembro</mat-option>
+        <mat-option value="october">Outubro</mat-option>
+        <mat-option value="november">Novembro</mat-option>
+        <mat-option value="december">Dezembro</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <mat-select>
+      <mat-option value="comida">Comida</mat-option>
+      <mat-option value="investimento">Investimento</mat-option>
+      <mat-option value="namorada">Namorada</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
 
 
-<app-gasto-info [valor] = 28.50 [categoria]="'Comida'" [tipo]= "'out'" [data]="'20/10'"></app-gasto-info>
-<app-gasto-info [valor] = 100 [categoria]="'Investimento'" [tipo]= "'in'" [data]="'20/10'"></app-gasto-info>
-<app-gasto-info [valor] = 10 [categoria]="'Namorada'" [tipo]= "'out'" [data]="'20/10'"></app-gasto-info>
-  
-  
+<app-gasto-info [valor]=28.50 [categoria]="'Comida'" [tipo]="'out'" [data]="'20/10'"></app-gasto-info>
+<app-gasto-info [valor]=100 [categoria]="'Investimento'" [tipo]="'in'" [data]="'20/10'"></app-gasto-info>
+<app-gasto-info [valor]=10 [categoria]="'Namorada'" [tipo]="'out'" [data]="'20/10'"></app-gasto-info>
