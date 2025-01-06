@@ -17,7 +17,7 @@
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Ano</mat-label>
-      <mat-select>
+      <mat-select [(ngModel)]="year">
         <mat-option value="2024">2024</mat-option>
         <mat-option value="2023">2023</mat-option>
         <mat-option value="2022">2022</mat-option>
@@ -27,35 +27,40 @@
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Mês</mat-label>
-      <mat-select>
-        <mat-option value="january">Janeiro</mat-option>
-        <mat-option value="february">Fevereiro</mat-option>
-        <mat-option value="march">Março</mat-option>
-        <mat-option value="april">Abril</mat-option>
-        <mat-option value="may">Maio</mat-option>
-        <mat-option value="june">Junho</mat-option>
-        <mat-option value="july">Julho</mat-option>
-        <mat-option value="august">Agosto</mat-option>
-        <mat-option value="september">Setembro</mat-option>
-        <mat-option value="october">Outubro</mat-option>
-        <mat-option value="november">Novembro</mat-option>
-        <mat-option value="december">Dezembro</mat-option>
+      <mat-select [(ngModel)]="month">
+        <mat-option value="1">Janeiro</mat-option>
+        <mat-option value="2">Fevereiro</mat-option>
+        <mat-option value="3">Março</mat-option>
+        <mat-option value="4">Abril</mat-option>
+        <mat-option value="5">Maio</mat-option>
+        <mat-option value="6">Junho</mat-option>
+        <mat-option value="7">Julho</mat-option>
+        <mat-option value="8">Agosto</mat-option>
+        <mat-option value="9">Setembro</mat-option>
+        <mat-option value="10">Outubro</mat-option>
+        <mat-option value="11">Novembro</mat-option>
+        <mat-option value="12">Dezembro</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Categoria</mat-label>
-      <mat-select>
-      <mat-option value="comida">Comida</mat-option>
+      <mat-select [(ngModel)]="category">
+      <mat-option value="Utilities">Utilities</mat-option>
       <mat-option value="investimento">Investimento</mat-option>
       <mat-option value="namorada">Namorada</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
+
+  <div>
+    <button (click)="filtrarGastos()" mat-flat-button id="filter">
+      Filtrar
+    </button>
+  </div>
 </div>
 
 
-<app-gasto-info [valor]=28.50 [categoria]="'Comida'" [tipo]="'out'" [data]="'20/10'"></app-gasto-info>
-<app-gasto-info [valor]=100 [categoria]="'Investimento'" [tipo]="'in'" [data]="'20/10'"></app-gasto-info>
-<app-gasto-info [valor]=10 [categoria]="'Namorada'" [tipo]="'out'" [data]="'20/10'"></app-gasto-info>
+
+
