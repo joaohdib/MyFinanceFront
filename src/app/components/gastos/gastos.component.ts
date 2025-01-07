@@ -1,4 +1,14 @@
-import { Component, Renderer2 } from '@angular/core';
+import {
+  Component,
+  Renderer2,
+  ElementRef,
+  ViewChild,
+  ComponentFactoryResolver,
+  ViewContainerRef,
+  Injector,
+  ApplicationRef,
+  ComponentRef
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { GastoInfoComponent } from './components/gasto-info/gasto-info.component';
@@ -15,22 +25,30 @@ import axios from 'axios';
   styleUrl: './gastos.component.css'
 })
 export class GastosComponent {
+  private dynamicComponents: ComponentRef<any>[] = []; // Lista para armazenar as referências dos componentes criados
   category: string = '';
   year: number = 0;
   month: number = 0;
-  
 
 
-  constructor(private router: Router, private renderer: Renderer2) {
-    
-  }
+
+  constructor(private router: Router, private renderer: Renderer2,
+    private elementRef: ElementRef,
+    private resolver: ComponentFactoryResolver,
+    private injector: Injector,
+    private appRef: ApplicationRef) { }
+    private components: any[] = [];
 
   filtrarGastos(): void {
-    interface element {
-      id: number;
+    interface payment {
+      _id: string;
+      quantity: number;
       category: string;
-      value: string;
+      month: number;
+      year: number;
+      type: string;
     }
+    this.cleanComponents();
     console.log('Filtrando gastos...');
     console.log('Categoria: ' + this.category);
     console.log('Ano: ' + this.year);
@@ -43,18 +61,45 @@ export class GastosComponent {
         month: this.month,
         type: "categoryYearMonth"
       }
-    }).then((response) => { 
-      
-      //console.log(response.data);
-      response.data.forEach((element: Object) => {
+    }).then((response) => {
 
-        console.log(element);
+      console.log(response.data);
+      response.data.forEach((element: payment) => {
+
+        const dynamicElement = this.renderer.createElement('div'); 
+        this.renderer.appendChild(document.body, dynamicElement); // Adiciona ao body ou qualquer outro local
+
+        // Usa ComponentFactoryResolver para criar o componente
+        const factory = this.resolver.resolveComponentFactory(GastoInfoComponent);
+        const componentRef = factory.create(this.injector);
         
+        componentRef.instance.valor = element.quantity;
+        componentRef.instance.data = `${element.month}/${element.year}`;
+        componentRef.instance.categoria = element.category;
+        componentRef.instance.tipo = element.type;
+
+        // Anexa o componente ao ApplicationRef
+        this.appRef.attachView(componentRef.hostView);
+
+        // Insere o elemento DOM do componente no local criado
+        const componentElement = (componentRef.hostView as any).rootNodes[0];
+        this.renderer.appendChild(dynamicElement, componentElement);
+        this.dynamicComponents.push(componentRef)
+
       });
 
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+
+  cleanComponents():void {
+    this.dynamicComponents.forEach((component) => {
+      this.appRef.detachView(component.hostView);
+      component.destroy();
+    });
+    this.dynamicComponents = [];
   }
 
   irParaOutraRota(rota: string): void {
