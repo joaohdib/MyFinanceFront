@@ -1,0 +1,22 @@
+<head><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"></head>
+
+<div class="logo-container">
+    MyFinance
+</div>
+
+<div id="main" style="text-align: center;">
+    <h1 style="margin-bottom: 40px">Login</h1>
+    <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input [(ngModel)]="email" id="email" matInput placeholder="Placeholder" placeholder="bob@example.com"> 
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input id="password" [(ngModel)]="password" matInput type="password" > 
+        </mat-form-field>
+    </p>
+    <button id="submit" (click)="submit()" mat-flat-button id="login">Login</button>
+</div>
