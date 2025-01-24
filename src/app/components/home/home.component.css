@@ -33,4 +33,10 @@
     color: white !important; /* Cor do texto */
     width: 200px;
     margin: 10px;
+  } 
+  .logout {
+    background-color: #ad120d !important; /* Cor de fundo roxa */
+    color: white !important; /* Cor do texto */
+    width: 200px;
+    margin: 10px;
   }

@@ -2,7 +2,7 @@ import { CanActivateFn, Router, ActivatedRouteSnapshot, RouterStateSnapshot } fr
 import { inject } from '@angular/core';
 import axios from 'axios';
 
-export const AuthGuard: CanActivateFn = (
+export const AuthGuard2: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
@@ -17,15 +17,14 @@ export const AuthGuard: CanActivateFn = (
     })
     .then((response) => {
       if (response.data.verification === true) {
-        return true; 
+        router.navigate(['home']); 
+        return false; 
       } else {
-        router.navigate(['']); 
-        return false;
+        return true;
       }
     })
     .catch((error) => {
       console.error("Erro ao verificar autenticação:", error.message);
-      router.navigate(['']); 
-      return false;
+      return true;
     });
 };

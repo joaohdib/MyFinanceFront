@@ -6,12 +6,15 @@
 
 <div id="main" style="text-align: center;">
     <h1 style="margin-bottom: 40px">Sign up</h1>
+    <p #errorElement class="error" style="margin-top: -25px; color: red"></p>
     <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your email</mat-label>
           <input [(ngModel)]="email" id="email" matInput placeholder="Placeholder" placeholder="bob@example.com"> 
         </mat-form-field>
+        
     </p>
+
     <p>
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>

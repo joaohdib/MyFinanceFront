@@ -1,6 +1,7 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {Router} from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,8 +14,11 @@ import axios from 'axios';
   styleUrl: './sign-up.component.css'
 })
 export class SignUpComponent {
+  @ViewChild('errorElement') errorElement!: ElementRef;
   email: String = '';
   password: String = '';
+
+  constructor(private router: Router) {}
 
   async submit(): Promise<void> {
     interface login {
@@ -27,14 +31,16 @@ export class SignUpComponent {
     };
     try {
       const response = await axios.post('http://localhost:3000/signup', data, {
-          headers: {
-              "Content-Type": "application/json", 
-          },
+        headers: {
+          "Content-Type": "application/json", 
+        },
       });
+      this.router.navigate([''])
+      
+    } catch (error: any) {
+      console.error("Erro:",  error.response.data);
+      this.errorElement.nativeElement.innerText =  error.response.data.message;
 
-      return response.data; 
-  } catch (error: any) {
-      console.error("Erro ao fazer POST:", error.message);
       throw error.response?.data || error;
   }
   }
