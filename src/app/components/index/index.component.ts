@@ -42,6 +42,7 @@ export class IndexComponent {
           },
       });
       if (response.status == 200) {
+        console.log(response.data);
         this.router.navigate(['/home']);
                }
       return response.data; 

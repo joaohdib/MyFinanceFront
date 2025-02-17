@@ -7,9 +7,7 @@ export const AuthGuard2: CanActivateFn = (
   state: RouterStateSnapshot
 ) => {
   const router = inject(Router);
-
-  return axios
-    .get('http://localhost:3000/verifyAuth', {
+  return axios.get('http://localhost:3000/verifyAuth', {
       withCredentials: true, // Inclui cookies
       headers: {
         "Content-Type": "application/json",
@@ -17,8 +15,8 @@ export const AuthGuard2: CanActivateFn = (
     })
     .then((response) => {
       if (response.data.verification === true) {
-        router.navigate(['home']); 
-        return false; 
+        router.navigate(['home']);
+        return false;
       } else {
         return true;
       }

@@ -1,25 +1,31 @@
-<head><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"></head>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+</head>
 
-<div class="logo-container">
-    MyFinance
+<div class="title-container">
+  <p id="title"><strong>MyFinance</strong></p>
 </div>
 
-<div id="main" style="text-align: center;">
-    <h1 style="margin-bottom: 40px">Login</h1>
-    <p #errorElement class="error" style="margin-top: -25px; color: red">oii</p>
-    <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Enter your email</mat-label>
-          <input [(ngModel)]="email" id="email" matInput placeholder="Placeholder" placeholder="bob@example.com"> 
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Enter your password</mat-label>
-          <input id="password" [(ngModel)]="password" matInput type="password" > 
-        </mat-form-field>
-    </p>
-    <button id="submit" (click)="submit()" mat-flat-button id="login">Login</button>
-    <br>
-    <button class="signup" (click)="navigateToSignup()" mat-flat-button id="login">Create account</button>
+<div class="content"> 
+  <div class="form">
+
+    <p id="form-title">Login</p>
+
+    <div class="input-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input [(ngModel)]="email" id="email" matInput placeholder="Placeholder" placeholder="bob@example.com">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input type="password" [(ngModel)]="password" id="password" matInput>
+      </mat-form-field>
+
+    </div>
+
+
+    <button (click) = "submit()" mat-raised-button>Login</button>
+
+  </div>
 </div>

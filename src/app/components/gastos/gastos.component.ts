@@ -20,7 +20,7 @@ import axios from 'axios';
 
 @Component({
   selector: 'app-gastos',
-  imports: [MatButtonModule, GastoInfoComponent, MatSelectModule, FormsModule],
+  imports: [MatButtonModule, MatSelectModule, FormsModule],
   templateUrl: './gastos.component.html',
   styleUrl: './gastos.component.css'
 })

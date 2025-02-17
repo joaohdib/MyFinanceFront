@@ -1,29 +1,47 @@
-#main {
-    background-color: #f5f5f5;
-    border-radius: 12px;
-    padding: 30px;
-    width: 300px;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-.logo-container {
-    font-size: 48px;
-    font-weight: bold;
-    color: #6A0DAD; /* Cor roxa */
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
-
-  ::ng-deep #login {
-    background-color: #6A0DAD !important;
-    color: #FFFFFF;
+.title-container {
+  display: flex;
+  justify-content: center;
+  /* Centraliza os itens horizontalmente */
+  align-items: center;
+  /* Centraliza os itens verticalmente */
 }
 
-.signup {
-  margin-top: 10px;
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+
+  display: flex;
+  flex-direction: column;
+  /* Faz os itens ficarem um embaixo do outro */
+  align-items: center;
+  /* Centraliza horizontalmente */
+  justify-content: center;
+  width: 500px;
+  height: 400px;
+  margin-bottom: 200px;
+  background-color: rgb(204, 204, 204);
+  gap: 20px;
+  border-radius: 10px;
+
+}
+
+.input-container {
+  display:flex;
+  flex-direction: column;
+}
+
+#title {
+  color: purple;
+  font-size: 36px;
+  font-family: "Inter", serif;
+}
+
+#form-title {
+  font-size:25px;
+
 }
