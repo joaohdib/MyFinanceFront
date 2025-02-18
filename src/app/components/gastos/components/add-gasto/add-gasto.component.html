@@ -1,1 +1,26 @@
-<p>add-gasto works!</p>
+<div class="background">
+    <div class="light-effect"></div>
+</div>
+<div class="content">
+    <div class="title-container"><strong>Adicionar</strong></div>
+    <div class="form">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Data</mat-label>
+            <input type="date" [(ngModel)]="email" id="email" matInput placeholder="bob@example.com">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Categoria</mat-label>
+            <input type="text" [(ngModel)]="password" id="password" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Valor</mat-label>
+            <input type="number" [(ngModel)]="password" id="password" matInput>
+        </mat-form-field>
+
+
+    </div>
+
+</div>
