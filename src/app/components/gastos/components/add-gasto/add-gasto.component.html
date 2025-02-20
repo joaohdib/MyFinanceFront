@@ -5,21 +5,27 @@
     <div class="title-container"><strong>Adicionar</strong></div>
     <div class="form">
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Data</mat-label>
-            <input type="date" [(ngModel)]="email" id="email" matInput placeholder="bob@example.com">
+            <input type="date" [(ngModel)]="date" id="email" matInput placeholder="bob@example.com">
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Categoria</mat-label>
-            <input type="text" [(ngModel)]="password" id="password" matInput>
+            <mat-select [(ngModel)]="category">
+                <mat-option value="utilities">Utilities</mat-option>
+                <mat-option value="investimento">Investimento</mat-option>
+                <mat-option value="salary">Salary</mat-option>
+            </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Valor</mat-label>
-            <input type="number" [(ngModel)]="password" id="password" matInput>
+            <input type="number" [(ngModel)]="value" id="password" matInput>
         </mat-form-field>
 
+
+        <button mat-flat-button id="filter" (click)="submit()"> Adicionar </button>
 
     </div>
 
